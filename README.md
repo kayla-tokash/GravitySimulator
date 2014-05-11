@@ -1,6 +1,8 @@
-Gravity Simulator
-Version 2.0
-Nicholas Tokash
+Title:    Gravity Simulator
+
+Version:  2.0
+
+Author:   Nicholas Tokash
 
 Description:
 
