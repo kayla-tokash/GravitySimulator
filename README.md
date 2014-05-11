@@ -8,6 +8,12 @@ Description:
 
 This gravity simulator was originally an experiment with JOGL. This version is completely recoded from the original version in order to make the code cleaner and easier to understand. It is a project I work on in my freetime.
 
+Requied Libraries:
+
+- JOGl (OpenGL Library for Java)
+  - gluegen-rt.jar
+  - jogl-all.jar
+
 Todo:
 
 - Fix acceration between the mass bodies
