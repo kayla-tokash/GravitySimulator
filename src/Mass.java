@@ -87,6 +87,27 @@ public class Mass {
 		
 		Vector ret = Vector.divVec(G * m.mass, Vector.pow(Vector.diff(this.pos, m.pos), 2));
 		return ret;
+		// double acc = G * m.mass / Math.pow(Vector.distance(this.pos,m.pos),2);
+		
+		// double theta_xy = Math.atan((this.pos.y - m.pos.y) / (this.pos.x - m.pos.x)) /
+		// 		Vector.distance(
+		// 			new Vector(this.pos.x, this.pos.y), 
+		// 			new Vector(m.pos.x, m.pos.y));
+		
+		// double theta_yz = Math.atan((this.pos.z - m.pos.z) / (this.pos.y - m.pos.y)) /
+		// 		Vector.distance(
+		// 			new Vector(this.pos.y, this.pos.z), 
+		// 			new Vector(m.pos.y, m.pos.z));
+		
+		
+		// double x_vector = Math.cos(theta_xy);
+		// double y_vector = Math.sin(theta_xy);
+		// double z_vector = Math.sin(theta_yz);
+		
+		// return new Vector(
+		// 	x_vector * acc,
+		// 	y_vector * acc,
+		// 	z_vector * acc);
 	}
 	
 	/**
