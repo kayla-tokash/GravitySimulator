@@ -7,6 +7,7 @@
 
 public class Vector {
 	public float[] coor;
+	public float x, y, z, w;
 	
 	/**
 	 * Constructor
@@ -24,6 +25,18 @@ public class Vector {
 		coor = new float[args.length];
 		for (int i = 0; i < args.length; ++i)
 			coor[i] = args[i];
+			
+		// switch (args.length) {
+		// 	case 4: 
+		// 		final w = args[3];
+		// 	case 3:
+		// 		final z = args[2];
+		// 	case 2: 
+		// 		final y = args[1];
+		// 	case 1:
+		// 		final x = args[0];
+				
+		// }
 	}
 	
 	/**
