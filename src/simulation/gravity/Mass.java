@@ -1,8 +1,10 @@
+package simulation.gravity;
+
 import javax.media.opengl.GL2;
 
 /**
  * @author Nicholas Tokash
- * Mass.java
+ * simulation.gravity.Mass.java
  * Contains data and methods for handling mass bodies
  */
 
@@ -14,6 +16,8 @@ public class Mass {
 	
 	private Vector pos;
 	private Vector vel;
+
+    private Boolean isDestroyed = false;
 	
 	/**
 	 * Creates a new mass body at origin
@@ -51,11 +55,13 @@ public class Mass {
 	 * @param gl
 	 */
 	public void draw(GL2 gl) {
+        System.out.println(this.id + ":\n" + this.pos.toString());
+
 		// Translating to position
 		gl.glTranslated(-this.pos.coor[0], -this.pos.coor[1], -this.pos.coor[2]);
 
 		// Setting out color
-		gl.glColor3f(1, 1, 1);
+		gl.glColor3f(this.id / num, 1, 1);
 		
 		// Drawing something
 		Circle.draw(gl, this.getRadius() * 0.1f);
@@ -81,7 +87,9 @@ public class Mass {
 	 * @return vector acceleration from the other mass body
 	 */
 	public Vector getAccFrom(double G, Mass m) {
-        // a_from_m = G * m.mass / (distance(this.pos, m.pos) ^ 2)
+
+        if (isDestroyed) return new Vector(0,0,0);
+
 		Vector mag = Vector.div(G * m.mass, Vector.pow(Vector.diff(this.pos, m.pos), 2));
 
         Vector diff = Vector.diff(m.pos, this.pos);
@@ -95,10 +103,8 @@ public class Mass {
 	 * Checks if the current mass body has collided with the checked mass body
 	 * @param m the other mass body
 	 * @return true if there was a collision, false if not
-	 * TODO Implement a function that will check if the mass 
-	 * collide while moving as willCollideWith(Mass m) 
 	 */
-	public boolean hasCollidedWith(Mass m) {
+	public boolean isTouching(Mass m) {
 		return (this.getRadius() + m.getRadius() > Math.abs(Vector.distance(this.pos, m.pos)));
 	}
 	
@@ -119,7 +125,21 @@ public class Mass {
 		this.pos = Vector.avg(this.pos, m.pos);
 		this.vel = Vector.avg(this.vel, m.vel);
 	}
-	
+
+    /**
+     * Toggles mass body to be removed
+     */
+    public void destroy() {
+        this.isDestroyed = true;
+    }
+
+    /**
+     *
+     */
+	public boolean isDestroyed() {
+        return this.isDestroyed;
+    }
+
 	/**
 	 * Checks for equality
 	 */

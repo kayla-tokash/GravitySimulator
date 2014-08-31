@@ -1,8 +1,9 @@
+package simulation.gravity;
 
 /**
  * @author Nicholas Tokash
- * Vector.java
- * Vector Math Methods and Vector Class Object
+ * simulation.gravity.Vector.java
+ * simulation.gravity.Vector Math Methods and simulation.gravity.Vector Class Object
  */
 
 public class Vector {

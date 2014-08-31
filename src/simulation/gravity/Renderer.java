@@ -1,4 +1,4 @@
-
+package simulation.gravity;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -16,13 +16,13 @@ import static javax.media.opengl.GL.*;  // GL constants
 import static javax.media.opengl.GL2.*; // GL2 constants
 
 /**
- * Renderer.java derived from sample code supplied here
+ * simulation.gravity.Renderer.java derived from sample code supplied here
  * http://www3.ntu.edu.sg/home/ehchua/programming/opengl/JOGL2.0.html
  */
 @SuppressWarnings("serial")
 public class Renderer extends GLCanvas implements GLEventListener {
 	Universe u = new Universe();
-	
+
    // Define constants for the top-level container
    private static String TITLE = "Gravity Simulator v2.0";  // window's title
    private static final int CANVAS_WIDTH = 1280;  // width of the drawable
@@ -67,7 +67,7 @@ public class Renderer extends GLCanvas implements GLEventListener {
       });
    }
  
-   // Setup OpenGL Graphics Renderer
+   // Setup OpenGL Graphics simulation.gravity.Renderer
  
    private GLU glu;  // for the GL Utility
  
@@ -95,9 +95,10 @@ public class Renderer extends GLCanvas implements GLEventListener {
  
       // ----- Your OpenGL initialization code here -----
       
-      //u.addMass(1, new Vector(0,0,10), new Vector(0,0,0));
-      u.addMass(1, new Vector(0,5,10), new Vector(0,0,0));
-      u.addMass(1, new Vector(0,-5,10), new Vector(0,0,0));
+      //u.addMass(1, new simulation.gravity.Vector(0,0,10), new simulation.gravity.Vector(0,0,0));
+//      u.addMass(1, new simulation.gravity.Vector(0,5,10), new simulation.gravity.Vector(0,0,0));
+//      u.addMass(1, new simulation.gravity.Vector(0,-5,10), new simulation.gravity.Vector(0,0.00006,0));
+//      u.addMass(1, new simulation.gravity.Vector(0,0,7), new simulation.gravity.Vector(0,0,0));
    }
  
    /**
@@ -137,10 +138,13 @@ public class Renderer extends GLCanvas implements GLEventListener {
  
       // ----- Your OpenGL rendering code here (Render a white triangle for testing) -----
       gl.glTranslatef(0.0f, 0.0f, -6.0f); // translate into the screen
+//       u.addMass(
+//               1,
+//               new Vector((double) r.nextInt(10) - 5,(double)  r.nextInt(10) - 5,(double)  r.nextInt(10) - 5),
+//               new Vector(0,0,0)
+//       );
       u.draw(gl);
       u.updateMassList();
-      gl.glColor3f(1f,1f,1f);
-      //Circle.draw(gl, 1);
    }
  
    /**

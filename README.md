@@ -13,6 +13,7 @@ Requied Libraries:
 - JOGl (OpenGL Library for Java)
   - gluegen-rt.jar
   - jogl-all.jar
+Download here: http://jogamp.org/
 
 Todo:
 
@@ -24,7 +25,7 @@ Todo:
 - Add features from the original version
   - Mass body explosion
   - Export rendered frames
-  - Trails tracking mass bodies
+  - Trail tracking mass bodies
   - On screen information about the masses
 - Add control GUI
   - Add mass body
@@ -32,9 +33,13 @@ Todo:
   - Reset simulation
   - Exit simulation
   - Export simulation
+  - Import simulation
+  - Make GUI asynchronous
 - Make a more accurate collision detection
-- Add camera controls
+  - Currently, I do not check if the mass bodies collided along their current path. Its possible that a mass body can "pass through" another mass body.
+- Add view controls
 - Color each mass body
 
 Bugs:
 
+- Collision detection does not work

@@ -1,8 +1,10 @@
+package simulation.gravity;
+
 import javax.media.opengl.GL2;
 /**
  * 
  * @author Nicholas Tokash
- * Circle.java
+ * simulation.gravity.Circle.java
  * Handles drawing of a circle in basic OpenGL
  */
 public class Circle {
