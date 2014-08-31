@@ -1,6 +1,6 @@
 Title:    Gravity Simulator
 
-Version:  0.2.R1
+Version:  0.2.R2
 
 Author:   Nicholas Tokash
 
