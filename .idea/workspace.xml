@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8b05a62-ea1c-4ba2-a8ea-2512679efbac" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/control/gui/Controls.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/simulation/gravity/Universe.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/aeva.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Universe.java" afterPath="" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/Circle.java" afterPath="$PROJECT_DIR$/src/simulation/gravity/Circle.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/Mass.java" afterPath="$PROJECT_DIR$/src/simulation/gravity/Mass.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/Renderer.java" afterPath="$PROJECT_DIR$/src/simulation/gravity/Renderer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Universe.java" afterPath="$PROJECT_DIR$/src/simulation/gravity/Universe.java" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/Vector.java" afterPath="$PROJECT_DIR$/src/simulation/gravity/Vector.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
