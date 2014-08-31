@@ -6,37 +6,37 @@
  */
 
 public class Vector {
-	public float[] coor;
-	public float x, y, z, w;
+	public double[] coor;
+	public double x, y, z, w;
 	
 	/**
 	 * Constructor
 	 * @param size size of the new vector
 	 */
 	public Vector(int size) {
-		this.coor = new float[size];
+		this.coor = new double[size];
 	}
 	
 	/**
 	 * Constructor
 	 * @param args values to form the vector
 	 */
-	public Vector(float ... args) {
-		coor = new float[args.length];
+	public Vector(double ... args) {
+		coor = new double[args.length];
 		for (int i = 0; i < args.length; ++i)
 			coor[i] = args[i];
-			
-		// switch (args.length) {
-		// 	case 4: 
-		// 		final w = args[3];
-		// 	case 3:
-		// 		final z = args[2];
-		// 	case 2: 
-		// 		final y = args[1];
-		// 	case 1:
-		// 		final x = args[0];
-				
-		// }
+
+		switch (args.length) {
+			case 4:
+				w = args[3];
+			case 3:
+				z = args[2];
+			case 2:
+				y = args[1];
+			case 1:
+				x = args[0];
+
+		}
 	}
 	
 	/**
@@ -45,10 +45,10 @@ public class Vector {
 	 * @param v2 second vector 
 	 * @return result of dot product
 	 */
-	static public float dot(Vector v1, Vector v2) {
+	static public double dot(Vector v1, Vector v2) {
 		if (v1.coor.length != v2.coor.length) throw new RuntimeException("Dimmension mismatch. ");
 		
-		float result = 0;
+		double result = 0;
 		for (int i = 0; i < v1.coor.length; ++i)
 			result += v1.coor[i] * v2.coor[i];
 		
@@ -61,14 +61,14 @@ public class Vector {
 	 * @param v2 second vector
 	 * @return distance between the two vector
 	 */
-	static public float distance(Vector v1, Vector v2) {
-		if (v1.coor.length != v2.coor.length) throw new RuntimeException("Dimmension mismatch. ");
+	static public double distance(Vector v1, Vector v2) {
+		if (v1.coor.length != v2.coor.length) throw new RuntimeException("Dimmension  mismatch. ");
 		
-		float ret = 0;
+		double ret = 0;
 		for (int i = 0; i < v1.coor.length; ++i)
 			ret += Math.pow(v1.coor[i] - v2.coor[i], 2);
 		
-		return (float) Math.sqrt(ret);
+		return (double) Math.sqrt(ret);
 	}
 	
 	/**
@@ -111,7 +111,7 @@ public class Vector {
 	 * @param num scalar
 	 * @return result of multiplying a vector by a scalar
 	 */
-	static public Vector prod(Vector v, float num) {
+	static public Vector prod(Vector v, double num) {
 		Vector ret = new Vector(v.coor.length);
 		
 		for (int i = 0; i < v.coor.length; ++i)
@@ -126,7 +126,7 @@ public class Vector {
 	 * @param num scalar
 	 * @return result of dividing a vector by a scalar
 	 */
-	static public Vector div(Vector v, float num) {
+	static public Vector div(Vector v, double num) {
 		Vector ret = new Vector(v.coor.length);
 		
 		for (int i = 0; i < v.coor.length; ++i)
@@ -141,7 +141,7 @@ public class Vector {
 	 * @param num scalar
 	 * @return result of dividing a scalar by a vector
 	 */
-	static public Vector divVec(float num, Vector v) {
+	static public Vector div(double num, Vector v) {
 		Vector ret = new Vector(v.coor.length);
 		
 		for (int i = 0; i < v.coor.length; ++i)
@@ -156,11 +156,11 @@ public class Vector {
 	 * @param power scalar power
 	 * @return result of putting each value of a vector to a power
 	 */
-	static public Vector pow(Vector v, float power) {
+	static public Vector pow(Vector v, double power) {
 		Vector ret = new Vector(v.coor.length);
 		
 		for (int i = 0; i < v.coor.length; ++i) 
-			ret.coor[i] = (float)Math.pow(v.coor[i], power);
+			ret.coor[i] = (double)Math.pow(v.coor[i], power);
 			
 		return ret;
 	}
@@ -182,5 +182,25 @@ public class Vector {
 		
 		return ret;
 	}
-	
+
+    static public Vector cross(Vector v1, Vector v2) {
+        if (v1.coor.length != v2.coor.length) throw new RuntimeException("Dimmension mismatch. ");
+
+        Vector ret = new Vector(v1.coor.length);
+
+        for (int i = 0; i < v1.coor.length; ++i)
+            ret.coor[i] = v1.coor[i] * v2.coor[i];
+
+        return ret;
+    }
+
+    @Override
+    public String toString() {
+        String ret = ""; int i = 0;
+        for(double dim:this.coor) {
+            ret += i + " = " + dim + "\n";
+            ++i;
+        }
+        return ret;
+    }
 }

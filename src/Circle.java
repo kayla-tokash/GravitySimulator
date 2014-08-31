@@ -11,7 +11,7 @@ public class Circle {
 	 * @param gl 
 	 * @param radius radius of the circle
 	 */
-	static void draw(GL2 gl, float radius) {
+	static void draw(GL2 gl, double radius) {
 		
 		gl.glBegin(GL2.GL_TRIANGLE_FAN);
 		

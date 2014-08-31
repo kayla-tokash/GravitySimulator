@@ -1,6 +1,6 @@
 Title:    Gravity Simulator
 
-Version:  0.2.0
+Version:  0.2.R1
 
 Author:   Nicholas Tokash
 
@@ -16,7 +16,7 @@ Requied Libraries:
 
 Todo:
 
-- Fix acceration between the mass bodies
+//DONE// - Fix acceration between the mass bodies
 - Optimize simulation 
   - Updating positions
   - Calculating acceleration
@@ -38,4 +38,3 @@ Todo:
 
 Bugs:
 
-- Mass bodies added accelerate downward for no apparent reason

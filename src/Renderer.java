@@ -1,3 +1,5 @@
+
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -17,7 +19,6 @@ import static javax.media.opengl.GL2.*; // GL2 constants
  * Renderer.java derived from sample code supplied here
  * http://www3.ntu.edu.sg/home/ehchua/programming/opengl/JOGL2.0.html
  */
-
 @SuppressWarnings("serial")
 public class Renderer extends GLCanvas implements GLEventListener {
 	Universe u = new Universe();
@@ -108,7 +109,7 @@ public class Renderer extends GLCanvas implements GLEventListener {
       GL2 gl = drawable.getGL().getGL2();  // get the OpenGL 2 graphics context
  
       if (height == 0) height = 1;   // prevent divide by zero
-      float aspect = (float)width / height;
+      double aspect = (double)width / height;
  
       // Set the view port (display area) to cover the entire window
       gl.glViewport(0, 0, width, height);

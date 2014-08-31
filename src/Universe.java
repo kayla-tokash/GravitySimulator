@@ -9,7 +9,7 @@ import javax.media.opengl.GL2;
  */
 
 public class Universe {
-	private static float G = 0.005f; // Gravitational Constant
+	private static double G = 0.05; // Gravitational Constant
 	private ArrayList<Mass> massList;
 	
 	/**
@@ -59,7 +59,7 @@ public class Universe {
 	 * @param pos position of the body
 	 * @param vel velocity of the body
 	 */
-	public void addMass(float mass, Vector pos, Vector vel) {
+	public void addMass(double mass, Vector pos, Vector vel) {
 		this.massList.add(new Mass(mass, pos, vel));
 	}
 	
