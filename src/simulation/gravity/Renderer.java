@@ -24,7 +24,7 @@ public class Renderer extends GLCanvas implements GLEventListener {
 	Universe u = new Universe();
 
    // Define constants for the top-level container
-   private static String TITLE = "Gravity Simulator v2.0";  // window's title
+   private static String TITLE = "Gravity Simulatorw View";  // window's title
    private static final int CANVAS_WIDTH = 1280;  // width of the drawable
    private static final int CANVAS_HEIGHT = 720; // height of the drawable
    private static final int FPS = 60; // animator's target frames per second
