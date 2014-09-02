@@ -15,16 +15,28 @@ import simulation.gravity.Renderer;
 public class Controls extends JFrame {
     /* Constants */
 
+    // Version
+    private final int DEPLOYMENT = 0;
+    private final int RELEASE = 2;
+    private final int REVISION = 3;
+
+    private final String VERSION = DEPLOYMENT + "." + RELEASE + ".R" + REVISION;
+
+    // GUI Config
+    private final String TITLE = "Gravity Simulation v" + VERSION;
+
     /* Variables */
     private Renderer r;
     private Panel massList;
     private Panel controls;
 
     public Controls() {
-        setTitle("Gravity Simulation v0.2");
+        setTitle(TITLE);
+
         setSize(500,500);
         setVisible(true);
 
+        add(massList, controls);
 
     }
 

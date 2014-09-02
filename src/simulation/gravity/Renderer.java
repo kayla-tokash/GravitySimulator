@@ -2,6 +2,7 @@ package simulation.gravity;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
 
 import javax.swing.*;
 import javax.media.opengl.GL2;
@@ -22,13 +23,17 @@ import static javax.media.opengl.GL2.*; // GL2 constants
 @SuppressWarnings("serial")
 public class Renderer extends GLCanvas implements GLEventListener {
 	Universe u = new Universe();
+    Random r = new Random();
 
    // Define constants for the top-level container
    private static String TITLE = "Gravity Simulatorw View";  // window's title
    private static final int CANVAS_WIDTH = 1280;  // width of the drawable
    private static final int CANVAS_HEIGHT = 720; // height of the drawable
    private static final int FPS = 60; // animator's target frames per second
- 
+
+   private Vector camOrigin = new Vector(0,0,0);
+   private Vector camRotation = new Vector(0,0,0,0);
+
    /** The entry main() method to setup the top-level container and animator */
    public static void main(String[] args) {
       // Run the GUI codes in the event-dispatching thread for thread safety
@@ -137,12 +142,15 @@ public class Renderer extends GLCanvas implements GLEventListener {
       gl.glLoadIdentity();  // reset the model-view matrix
  
       // ----- Your OpenGL rendering code here (Render a white triangle for testing) -----
-      gl.glTranslatef(0.0f, 0.0f, -6.0f); // translate into the screen
-//       u.addMass(
-//               1,
-//               new Vector((double) r.nextInt(10) - 5,(double)  r.nextInt(10) - 5,(double)  r.nextInt(10) - 5),
-//               new Vector(0,0,0)
-//       );
+      gl.glTranslated(this.camOrigin.x, this.camOrigin.y, this.camOrigin.z);
+      gl.glRotated(this.camRotation.w, this.camRotation.x, this.camRotation.y, this.camRotation.z);
+      gl.glTranslated(0.0, 0.0, -6.0); // translate into the screen
+       if (r.nextInt(1000) <= 150)
+           u.addMass(
+                   (double) r.nextInt(10000) / 10000d,
+                   new Vector((double) r.nextInt(10) - 5,(double)  r.nextInt(10) - 5,(double)  r.nextInt(10) - 5),
+                   new Vector(0,0,0)
+           );
       u.draw(gl);
       u.updateMassList();
    }
@@ -152,4 +160,10 @@ public class Renderer extends GLCanvas implements GLEventListener {
     */
    @Override
    public void dispose(GLAutoDrawable drawable) { }
+
+
+   public void setCamera(Vector origin, Vector rotation) {
+          this.camOrigin = origin;
+          this.camRotation = rotation;
+   }
 }

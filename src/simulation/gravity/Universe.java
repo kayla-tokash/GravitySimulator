@@ -11,7 +11,7 @@ import javax.media.opengl.GL2;
  */
 
 public class Universe {
-	private static double G = 0.00005; // Gravitational Constant
+	private static double G = 0.000000005; // Gravitational Constant
 	private ArrayList<Mass> massList;
 	
 	/**

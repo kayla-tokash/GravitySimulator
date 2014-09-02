@@ -55,13 +55,18 @@ public class Mass {
 	 * @param gl
 	 */
 	public void draw(GL2 gl) {
-        System.out.println(this.id + ":\n" + this.pos.toString());
+//        System.out.println(this.id + ":\n" + this.pos.toString());
 
 		// Translating to position
 		gl.glTranslated(-this.pos.coor[0], -this.pos.coor[1], -this.pos.coor[2]);
 
 		// Setting out color
-		gl.glColor3f(this.id / num, 1, 1);
+		gl.glColor3d(
+                ((num == 0 || this.id == 0) ? 0 : (double) this.id / (double) num),
+                1d-((num == 0 || this.id == 0) ? 0 : (double) this.id / (double) num),
+                1d
+        );
+//        System.out.println((num == 0 || this.id == 0) ? 0 : (double) this.id / (double) num);
 		
 		// Drawing something
 		Circle.draw(gl, this.getRadius() * 0.1f);
