@@ -46,4 +46,4 @@ Bugs:
 None at the moment
 
 
-*This current version will follow the largest mass in the universe and slow rotate the camera around it*
+*This current version will follow the largest mass in the universe and slowly rotate the camera around it.*
