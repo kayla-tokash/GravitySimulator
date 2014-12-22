@@ -71,6 +71,10 @@ public class Vector {
 		
 		return (double) Math.sqrt(ret);
 	}
+
+    static private void distanceTest(Vector v1, Vector v2) {
+        System.out.println("v1 = " + v1 + "v2 = " + v2 + "distance = " + distance(v1,v2));
+    }
 	
 	/**
 	 * Sum of two vectors
@@ -204,4 +208,15 @@ public class Vector {
         }
         return ret;
     }
+
+
+    public static void main(String args[]){
+        int i = 0;
+        while (i < 100) {
+            distanceTest(new Vector(0,0,0), new Vector(i,i,i));
+            i++;
+        }
+    }
 }
+
+

@@ -69,7 +69,7 @@ public class Mass {
 //        System.out.println((num == 0 || this.id == 0) ? 0 : (double) this.id / (double) num);
 		
 		// Drawing something
-		Circle.draw(gl, this.getRadius() * 0.1f);
+		Circle.draw(gl, this.getRadius());
 		
 		// Returning to original position
 		gl.glTranslated(this.pos.coor[0], this.pos.coor[1], this.pos.coor[2]);
@@ -110,7 +110,7 @@ public class Mass {
 	 * @return true if there was a collision, false if not
 	 */
 	public boolean isTouching(Mass m) {
-		return (this.getRadius() + m.getRadius() > Math.abs(Vector.distance(this.pos, m.pos)));
+        return ((this.getRadius() + m.getRadius()) > Math.abs(Vector.distance(this.pos, m.pos)));
 	}
 	
 	/**
@@ -118,7 +118,7 @@ public class Mass {
 	 * @return the radius of the mass body
 	 */
 	public double getRadius() {
-		return (double)Math.sqrt(this.mass);
+		return (double)Math.sqrt(this.mass) * 0.1d;
 	}
 	
 	/**

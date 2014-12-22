@@ -11,7 +11,7 @@ import javax.media.opengl.GL2;
  */
 
 public class Universe {
-	private static double G = 0.000000005; // Gravitational Constant
+	private static double G = 0.000005; // Gravitational Constant
 	private ArrayList<Mass> massList;
 	
 	/**
@@ -31,8 +31,8 @@ public class Universe {
 		
 		for (Mass m1:this.massList) {
 			for (Mass m2: tmp) {
-				if (!m1.equals(m2)) {
-					if (m1.isTouching(m2) && false) {
+				if (!(m1.isDestroyed() || m2.isDestroyed()) && !m1.equals(m2)) {
+					if (m1.isTouching(m2)) {
 						m1.absorb(m2);
                         m2.destroy();
 					} else {
