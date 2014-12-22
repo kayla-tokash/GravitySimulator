@@ -11,8 +11,10 @@ import javax.media.opengl.GL2;
  */
 
 public class Universe {
-	private static double G = 0.000005; // Gravitational Constant
+	private static double G = 0.0000005; // Gravitational Constant
 	private ArrayList<Mass> massList;
+
+    private Mass largetMass = null;
 	
 	/**
 	 * Default Constructor 
@@ -38,12 +40,19 @@ public class Universe {
 					} else {
 						m1.accelerateAndMove(m1.getAccFrom(Universe.G, m2));
 					}
+                    if (this.getLargestMass() == null || this.getLargestMass().getMass() < m1.getMass()) {
+                        this.largetMass = m1;
+                    }
 				}
 			}
 		}
 
         cleanUp();
 	}
+
+    public Mass getLargestMass() {
+        return this.largetMass;
+    }
 	
 	/**
 	 * Removes a mass body from the universe
@@ -51,7 +60,7 @@ public class Universe {
 	 */
     @Deprecated
 	public void removeMass(long id) {
-        System.out.println("Removing mass #" + id);
+//        System.out.println("Removing mass #" + id);
 		for (int n = 0; n < this.massList.size(); ++n) {
 			if (this.massList.get(n).id == id)
 				this.massList.remove(n);

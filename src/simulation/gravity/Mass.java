@@ -120,15 +120,20 @@ public class Mass {
 	public double getRadius() {
 		return (double)Math.sqrt(this.mass) * 0.1d;
 	}
+
+    public double getMass() {return this.mass;}
+    public Vector getPos() {return this.pos;}
+    public long getId() {return this.id;}
 	
 	/**
 	 * Absorbs the mass and momentum of another mass body
 	 * @param m the other mass body 
 	 */
 	public void absorb(Mass m) {
+        double ratio = this.mass / (this.mass + m.mass);
 		this.mass += m.mass;
-		this.pos = Vector.avg(this.pos, m.pos);
-		this.vel = Vector.avg(this.vel, m.vel);
+		this.pos = Vector.sum(Vector.prod(this.pos,ratio), Vector.prod(m.pos, 1 - ratio));
+		this.vel = Vector.sum(Vector.prod(this.vel,ratio), Vector.prod(m.vel, 1 - ratio));
 	}
 
     /**

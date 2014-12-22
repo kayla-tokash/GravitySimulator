@@ -135,6 +135,7 @@ public class Renderer extends GLCanvas implements GLEventListener {
    /**
     * Called back by the animator to perform rendering.
     */
+   double a = 0;
    @Override
    public void display(GLAutoDrawable drawable) {
       GL2 gl = drawable.getGL().getGL2();  // get the OpenGL 2 graphics context
@@ -144,15 +145,18 @@ public class Renderer extends GLCanvas implements GLEventListener {
       // ----- Your OpenGL rendering code here (Render a white triangle for testing) -----
       gl.glTranslated(this.camOrigin.x, this.camOrigin.y, this.camOrigin.z);
       gl.glRotated(this.camRotation.w, this.camRotation.x, this.camRotation.y, this.camRotation.z);
-      gl.glTranslated(0.0, 0.0, -6.0); // translate into the screen
-       if (r.nextInt(1000) <= 150)
+      gl.glTranslated(0.0, 0.0, -10.0); // translate into the screen
+       if (r.nextInt(1000) <= 15)
            u.addMass(
                    (double) r.nextInt(10000) / 10000d,
-                   new Vector((double) r.nextInt(10) - 5,(double)  r.nextInt(10) - 5,(double)  r.nextInt(10) - 5),
-                   new Vector(0,0,0)
+                   Vector.sum(new Vector((double) r.nextInt(10) - 5,(double)  r.nextInt(10) - 5,(double)  r.nextInt(10) - 5),this.camOrigin),
+                   new Vector(r.nextGaussian()*.0001,r.nextGaussian()*.0001,r.nextGaussian()*.0001)
            );
       u.draw(gl);
       u.updateMassList();
+      if (u.getLargestMass() != null) {
+          this.setCamera(u.getLargestMass().getPos(),Vector.sum(this.camRotation,new Vector(1,0,0.1,0)));
+      }
    }
  
    /**
@@ -163,7 +167,7 @@ public class Renderer extends GLCanvas implements GLEventListener {
 
 
    public void setCamera(Vector origin, Vector rotation) {
-          this.camOrigin = origin;
-          this.camRotation = rotation;
+          this.camOrigin = new Vector(origin.coor);
+          this.camRotation = new Vector(rotation.coor);
    }
 }

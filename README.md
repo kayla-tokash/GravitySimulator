@@ -19,7 +19,7 @@ Download here: http://jogamp.org/
 
 Todo:
 
-//DONE// - Fix acceration between the mass bodies
+- Fix acceration between the mass bodies DONE
 - Optimize simulation 
   - Updating positions
   - Calculating acceleration
@@ -27,7 +27,7 @@ Todo:
 - Add features from the original version
   - Mass body explosion
   - Export rendered frames
-  - Trail tracking mass bodies
+  - Trail tracking mass bodies INPROGRESS
   - On screen information about the masses
 - Add control GUI
   - Add mass body
@@ -37,11 +37,13 @@ Todo:
   - Export simulation
   - Import simulation
   - Make GUI asynchronous
-- Make a more accurate collision detection
-  - Currently, I do not check if the mass bodies collided along their current path. Its possible that a mass body can "pass through" another mass body.
+- Make a more accurate collision detection DONE
 - Add view controls
-- Color each mass body
+- Color each mass body DONE
 
 Bugs:
 
-- Collision detection does not work
+None at the moment
+
+
+*This current version will follow the largest mass in the universe and slow rotate the camera around it*
