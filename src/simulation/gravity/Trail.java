@@ -9,5 +9,5 @@ import javax.media.opengl.GL2;
  */
 public class Trail {
     LinkedList<Vector> trail = new LinkedList<Vector>();
-    // This will eventually hold the tail of a mass body 
+    // This will eventually hold the tail of a mass body
 }
