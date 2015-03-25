@@ -11,7 +11,7 @@ This gravity simulator was originally an experiment with JOGL. This version is c
 Requied Libraries:
 
 - JOGl (OpenGL Library for Java)
-  - gluegen.jar
+  - gluegen-rt.jar
   - jogl-all.jar
 
 Download here: http://jogamp.org/deployment/archive/rc/v2.2.4/jar/
