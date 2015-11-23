@@ -5,16 +5,16 @@ import java.awt.event.*;
 import java.util.Random;
 
 import javax.swing.*;
-import javax.media.opengl.GL2;
-import javax.media.opengl.GLAutoDrawable;
-import javax.media.opengl.GLEventListener;
-import javax.media.opengl.awt.GLCanvas;
-import javax.media.opengl.glu.GLU;
 
+// OpenGL
+import com.jogamp.opengl.*;
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
 
-import static javax.media.opengl.GL.*;  // GL constants
-import static javax.media.opengl.GL2.*; // GL2 constants
+// Importing constants
+import static com.jogamp.opengl.GL.*;
+import static com.jogamp.opengl.GL2.*;
 
 /**
  * simulation.gravity.Renderer.java derived from sample code supplied here
@@ -75,7 +75,7 @@ public class Renderer extends GLCanvas implements GLEventListener {
    // Setup OpenGL Graphics simulation.gravity.Renderer
  
    private GLU glu;  // for the GL Utility
- 
+
    /** Constructor to setup the GUI for this Component */
    public Renderer() {
       this.addGLEventListener(this);
@@ -119,7 +119,9 @@ public class Renderer extends GLCanvas implements GLEventListener {
  
       // Set the view port (display area) to cover the entire window
       gl.glViewport(0, 0, width, height);
- 
+
+
+
       // Setup perspective projection, with aspect ratio matches viewport
       gl.glMatrixMode(GL_PROJECTION);  // choose projection matrix
       gl.glLoadIdentity();             // reset projection matrix

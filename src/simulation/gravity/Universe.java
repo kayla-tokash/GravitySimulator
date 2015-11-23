@@ -2,7 +2,7 @@ package simulation.gravity;
 
 import java.util.ArrayList;
 
-import javax.media.opengl.GL2;
+import com.jogamp.opengl.*;
 
 /**
  * @author Nicholas Tokash

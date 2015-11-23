@@ -2,7 +2,7 @@ package simulation.gravity;
 
 import java.util.LinkedList;
 
-import javax.media.opengl.GL2;
+import com.jogamp.opengl.*;
 
 /**
  * Created by aeva on 12/22/14.
