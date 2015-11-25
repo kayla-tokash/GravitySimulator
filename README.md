@@ -1,6 +1,6 @@
 Title:    Gravity Simulator
 
-Version:  0.2.R3
+Version:  0.2.R4
 
 Author:   Nicholas Tokash
 
@@ -9,6 +9,7 @@ Description:
 This gravity simulator was originally an experiment with JOGL. This version is completely recoded from the original version in order to make the code cleaner and easier to understand. It is a project I work on in my freetime.
 
 Requied Libraries:
+(possibly out of date, I will work on this)
 
 - JOGl (OpenGL Library for Java)
   - gluegen-rt.jar
@@ -41,7 +42,6 @@ Todo:
   - Add view controls
 - ~~Make a more accurate collision detection~~
 - ~~Color each mass body~~
-- Update to JavaFX
 
 Bugs:
 

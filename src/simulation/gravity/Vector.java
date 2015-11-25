@@ -8,7 +8,7 @@ package simulation.gravity;
 
 public class Vector {
 	public double[] coor;
-	public double x, y, z, w;
+//	public double x, y, z, w;
 	
 	/**
 	 * Constructor
@@ -21,23 +21,24 @@ public class Vector {
 	/**
 	 * Constructor
 	 * @param args values to form the vector
+	 * todo: re-implement the xyzw thing because it cool, but it was a poor design choice imo...
 	 */
 	public Vector(double ... args) {
 		coor = new double[args.length];
 		for (int i = 0; i < args.length; ++i)
 			coor[i] = args[i];
 
-		switch (args.length) {
-			case 4:
-				w = args[3];
-			case 3:
-				z = args[2];
-			case 2:
-				y = args[1];
-			case 1:
-				x = args[0];
-
-		}
+//		switch (args.length) {
+//			case 4:
+//				w = args[3];
+//			case 3:
+//				z = args[2];
+//			case 2:
+//				y = args[1];
+//			case 1:
+//				x = args[0];
+//
+//		}
 	}
 	
 	/**
@@ -69,7 +70,7 @@ public class Vector {
 		for (int i = 0; i < v1.coor.length; ++i)
 			ret += Math.pow(v1.coor[i] - v2.coor[i], 2);
 		
-		return (double) Math.sqrt(ret);
+		return Math.sqrt(ret);
 	}
 
     static private void distanceTest(Vector v1, Vector v2) {

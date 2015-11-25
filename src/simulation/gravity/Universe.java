@@ -11,7 +11,7 @@ import com.jogamp.opengl.*;
  */
 
 public class Universe {
-	private static double G = 0.00000005; // Gravitational Constant
+	private static double G = 0.000000000005; // Gravitational Constant
 	private ArrayList<Mass> massList;
 
     private Mass largetMass = null;
@@ -73,7 +73,7 @@ public class Universe {
     public void cleanUp() {
         for (int n = 0; n < this.massList.size(); ++n) {
             if (this.massList.get(n).isDestroyed()) {
-                System.out.println("Removing mass #" + n);
+//                System.out.println("Removing mass #" + n);
                 this.massList.remove(n);
             }
         }
