@@ -11,7 +11,7 @@ import com.jogamp.opengl.*;
  */
 
 public class Universe {
-	private static double G = 0.0000005; // Gravitational Constant
+	private static double G = 0.00000005; // Gravitational Constant
 	private ArrayList<Mass> massList;
 
     private Mass largetMass = null;
@@ -28,7 +28,6 @@ public class Universe {
 	 */
 	public void updateMassList() {
 		
-		@SuppressWarnings("unchecked")
 		ArrayList<Mass> tmp = (ArrayList<Mass>) this.massList.clone();
 		
 		for (Mass m1:this.massList) {

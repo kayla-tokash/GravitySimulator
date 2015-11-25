@@ -20,7 +20,7 @@ Download here: http://jogamp.org/deployment/archive/rc/v2.2.4/jar/
 
 Todo:
 
-- Fix acceration between the mass bodies DONE
+- ~~Fix acceration between the mass bodies~~
 - Optimize simulation 
   - Updating positions
   - Calculating acceleration
@@ -38,9 +38,10 @@ Todo:
   - Export simulation
   - Import simulation
   - Make GUI asynchronous
-- Make a more accurate collision detection DONE
-- Add view controls
-- Color each mass body DONE
+  - Add view controls
+- ~~Make a more accurate collision detection~~
+- ~~Color each mass body~~
+- Update to JavaFX
 
 Bugs:
 

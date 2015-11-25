@@ -104,6 +104,13 @@ public class Renderer extends GLCanvas implements GLEventListener {
 //      u.addMass(1, new simulation.gravity.Vector(0,5,10), new simulation.gravity.Vector(0,0,0));
 //      u.addMass(1, new simulation.gravity.Vector(0,-5,10), new simulation.gravity.Vector(0,0.00006,0));
 //      u.addMass(1, new simulation.gravity.Vector(0,0,7), new simulation.gravity.Vector(0,0,0));
+      for (int i = 0; i < 1000; ++i) {
+         u.addMass((double) r.nextInt(10000) / 10000d,
+       Vector.sum(new Vector((double) r.nextInt(10) - 5,(double)  r.nextInt(10) - 5,(double)  r.nextInt(10) - 5),this.camOrigin),
+                   new Vector(0,0,0)
+//                   new Vector(r.nextGaussian()*.0001,r.nextGaussian()*.0001,r.nextGaussian()*.0001)
+           );
+      }
    }
  
    /**
@@ -148,13 +155,13 @@ public class Renderer extends GLCanvas implements GLEventListener {
       gl.glTranslated(this.camOrigin.x, this.camOrigin.y, this.camOrigin.z);
       gl.glRotated(this.camRotation.w, this.camRotation.x, this.camRotation.y, this.camRotation.z);
       gl.glTranslated(0.0, 0.0, -10.0); // translate into the screen
-       if (r.nextInt(1000) <= 150)
-           u.addMass(
-                   (double) r.nextInt(10000) / 10000d,
-                   Vector.sum(new Vector((double) r.nextInt(10) - 5,(double)  r.nextInt(10) - 5,(double)  r.nextInt(10) - 5),this.camOrigin),
-                   new Vector(0,0,0)
-//                   new Vector(r.nextGaussian()*.0001,r.nextGaussian()*.0001,r.nextGaussian()*.0001)
-           );
+//       if (r.nextInt(1000) <= 150)
+//           u.addMass(
+//                   (double) r.nextInt(10000) / 10000d,
+//                   Vector.sum(new Vector((double) r.nextInt(10) - 5,(double)  r.nextInt(10) - 5,(double)  r.nextInt(10) - 5),this.camOrigin),
+//                   new Vector(0,0,0)
+////                   new Vector(r.nextGaussian()*.0001,r.nextGaussian()*.0001,r.nextGaussian()*.0001)
+//           );
       u.draw(gl);
       u.updateMassList();
       if (u.getLargestMass() != null) {
